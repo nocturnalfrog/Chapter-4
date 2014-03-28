@@ -1,0 +1,57 @@
+doctype html
+//if lt IE 7
+  html.no-js.lt-ie9.lt-ie8.lt-ie7  
+//if IE 7
+  html.no-js.lt-ie9.lt-ie8  
+//if IE 8
+  html.no-js.lt-ie9  
+// [if gt IE 8] <!
+html.no-js
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    title Chapter 4 - Bulletin Board
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width')
+    link(rel='stylesheet', href='styles/main.css')
+  body
+    header.navbar.navbar-static-top.navbar-inverse(role='banner')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.bs-navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand Bulletin Board
+        nav.collapse.navbar-collapse(role='navigation')
+          ul.nav.navbar-nav.navbar-right
+            li
+              a#nav-publish Publish a Post
+    .container
+      .row
+        .col-lg-12
+          #board
+            h1.text-center No Posts Found
+    #modal-post.modal.fade
+      .modal-dialog
+        .modal-content
+          .modal-header
+            a.close(data-dismiss='modal', aria-hidden='true') &times;
+            h4.modal-title
+              | Publish a
+              span#modal-type
+          .modal-body
+            form(role='form')
+              input#form-id(type='hidden', value='')
+              .form-group
+                label(for='form-message') Message
+                textarea#form-message.form-control(placeholder='Message', rows='6')
+          .modal-footer
+            a.btn.btn-default(data-dismiss='modal') Close
+            a#btn-publish.btn.btn-primary Publish Message
+    // build:js scripts/compiled.js 
+    script(type='text/javascript', src='bower_components/jquery/jquery.js')
+    script(type='text/javascript', src='bower_components/bootstrap-sass/dist/js/bootstrap.js')
+    // endbuild 
